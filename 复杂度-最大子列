@@ -1,0 +1,29 @@
+给定K个整数组成的序列，求连续序列最大和。
+
+#include<stdio.h>
+int main()
+{
+  int a;
+  scanf("%d",&a);
+  int b[a];
+  for(int i=0;i<a;i++)
+  {
+    scanf("%d",&b[i]);
+  }
+  int thisSum=0;//记录当前遍历和的最大值
+  int maxSum=0;//记录和的最大值
+  for(int i=0;i<a;i++)
+  {
+    thisSum += b[i];
+    if(thisSum>maxSum)
+    {
+      maxSum=thisSum;
+    }
+    if(thisSum<0)
+    {
+      thisSum=0;
+      continue;
+    }
+  }
+  printf("%d\n",maxSum);
+}
